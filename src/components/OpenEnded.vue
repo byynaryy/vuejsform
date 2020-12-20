@@ -1,16 +1,29 @@
 <template>
   <div class="kaka">
       <h1>Open-Ended</h1>
-      <span>Multiline message is:</span>
-      <p style="white-space: pre-line;">{{ message }}</p>
-      <br>
-      <textarea v-model="message" placeholder="add multiple lines"></textarea>
+      <form  @submit.prevent="question">
+         <p>The answer to the question is: {{ answer }}</p>
+         <textarea v-model="answer" placeholder="add multiple lines"></textarea>
+         <button type="submit">Submit</button>
+      </form>
   </div>
 </template>
 
 <script>
 export default {
   name: 'OpenEnded',
+
+  data() {
+    return {
+      answer: '',
+    };
+  },
+
+  methods: {
+    question() {
+      console.log(this.answer);
+    },
+  },
 };
 </script>
 
